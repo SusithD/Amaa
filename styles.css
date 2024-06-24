@@ -1,0 +1,622 @@
+/* Global styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(-45deg, #ffffff, #ffffff, #ffffff, #ffffff);
+    background-size: 400% 400%;
+    margin: 0;
+    padding: 0;
+    animation: gradientAnimation 15s ease infinite;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+
+header {
+    background-color: #ff69b4;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+
+/* Timeline Container */
+.timeline {
+    width: 100%;
+    max-width: 1200px;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+/* Events Container */
+.events-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+/* Event Styling */
+.event {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    position: relative;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.event:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Date Styling */
+.event .date {
+    font-weight: bold;
+    color: #ff69b4;
+    margin-bottom: 15px;
+    font-size: 1em;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: relative;
+}
+
+/* Content Image */
+.event .content img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    border: 2px solid #ff69b4;
+    transition: transform 0.3s ease-in-out;
+}
+
+.event .content img:hover {
+    transform: scale(1.03);
+}
+
+/* Paragraph Text */
+.event .content p {
+    font-size: 24px; /* Increased font size for better readability */
+    color: #555; /* Slightly darker color for better contrast */
+    line-height: 1.6; /* Increased line height for better readability */
+    margin-bottom: 15px;
+    padding: 15px 20px; /* Increased padding for more space around the text */
+    border-radius: 15px; /* More rounded corners */
+    background: linear-gradient(to bottom, #e1e1e1, #e1e1e1); /* Soft gradient background */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Softer shadow */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background 0.3s ease-in-out; /* Added transition for background */
+    position: relative; /* Position relative for pseudo-elements */
+    font-family: 'Poppins', sans-serif; /* Modern and clean font */
+}
+
+/* Hover Effect for Paragraph Text */
+.event .content p:hover {
+    transform: scale(1.03); /* Slightly larger scale effect */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* More pronounced shadow on hover */
+    background: linear-gradient(to bottom, #ffeff7, #ffe3ef); /* Light pink gradient background on hover */
+}
+
+/* Before and After Pseudo-elements for Quotation Marks */
+.event .content p::before,
+.event .content p::after {
+    content: "“"; /* or "”" for after */
+    font-family: Georgia, serif;
+    font-size: 3em; /* Large size for quotation marks */
+    line-height: 0.1em;
+    position: absolute;
+    color: #ff69b4; /* Romantic pink color for quotation marks */
+}
+
+.event .content p::before {
+    top: -20px; /* Position before quotation mark */
+    left: -10px;
+}
+
+.event .content p::after {
+    content: "”"; /* End quotation mark */
+    bottom: -20px; /* Position after quotation mark */
+    right: -10px;
+}
+
+/* Emphasized First Paragraph */
+.event .content p:first-of-type {
+    font-style: italic; /* Italic style for the first paragraph */
+    font-weight: 600; /* Bolder font weight */
+}
+
+/* Styling for the Last Paragraph */
+.event .content p:last-of-type {
+    font-weight: 400; /* Normal font weight for the last paragraph */
+    margin-bottom: 0;
+}
+
+/* Additional Styling for Romantic and Lovely Feel */
+.event .content p::selection {
+    background: #ff69b4; /* Highlight color on text selection */
+    color: white; /* White text color on selection */
+}
+
+/* Mobile Responsive Design */
+@media screen and (max-width: 768px) {
+    .event .content p {
+        font-size: 18px; /* Adjusted font size for smaller screens */
+        padding: 10px 15px; /* Adjusted padding for smaller screens */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .event .content p {
+        font-size: 16px; /* Further adjusted font size for smallest screens */
+    }
+}
+
+
+/* Label */
+.event .content .label {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ff69b4;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.8em;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+/* Icon */
+.event .icon {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    background: #ff69b4;
+    color: white;
+    padding: 10px;
+    border-radius: 50%;
+    font-size: 1em;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.event:hover .icon {
+    transform: rotate(360deg);
+}
+
+/* Chat Bubble */
+.chat-bubble {
+    background-color: #ff69b4;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    position: relative;
+    max-width: 100%;
+    margin: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.chat-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 20px;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #ff69b4;
+}
+
+/* Message Intro */
+.message-intro {
+    font-size: 0.9em;
+    color: #333;
+    margin-top: 10px;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border-radius: 10px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Additional Styling */
+.event:nth-child(even) {
+    background-color: #f7f7f7;
+}
+
+.event:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .event {
+        padding: 15px;
+    }
+
+    .event .content {
+        font-size: 0.85em;
+    }
+
+    .chat-bubble {
+        padding: 8px;
+    }
+
+    .message-intro {
+        font-size: 0.85em;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .event .content {
+        font-size: 0.8em;
+    }
+
+    .message-intro {
+        font-size: 0.8em;
+    }
+}
+
+
+
+/* CSS for Additional Images */
+.additional-images {
+    padding: 50px 20px; /* Adjust padding as needed */
+    text-align: center;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.additional-images h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2em;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.image-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 20px;
+    justify-items: center;
+    margin-top: 20px;
+}
+
+.image-container img {
+    position: relative;
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.image-container img:hover {
+    transform: scale(1.05); /* Scale up image on hover */
+}
+
+.image-container img::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="%23ff5252" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"%3E%3Cpath d="M20 2a4 4 0 0 1 0 8c-1.591-.745-3.35-.944-5-.5M12 20c-1.2 0-3-1-4-2-1-1-1.8-2.8-1.8-4 0-2 2-4 4-4 1.6 0 4 1.8 5 3 1 1 1 3 1 4-1 1-2.8 2-4 2z"%3E%3C/path%3E%3C/svg%3E');
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.image-container img:hover::before {
+    opacity: 1; /* Show heart animation on hover */
+    transition-delay: 0.1s; /* Delay animation slightly */
+}
+
+
+
+
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5em;
+    text-align: center;
+    color: #444;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: #ff4d6b;
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+
+
+
+h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    color: #333;
+    display: flex;
+    align-items: center;
+}
+
+h3 .icon {
+    margin-right: 10px;
+    font-size: 1.5em;
+    color: #ff4d6b;
+}
+
+
+
+
+.highlight {
+    background: rgba(255, 77, 107, 0.1);
+    padding: 3px 5px;
+    border-radius: 3px;
+}
+
+@media (min-width: 768px) {
+    .personal-reflections {
+        padding-left: 50px;
+    }
+
+    .container {
+        padding: 40px;
+    }
+}
+
+/* Icon Styles */
+.icon-relationship:before {
+    content: '\f004'; /* FontAwesome heart icon */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+}
+
+.icon-reasons:before {
+    content: '\f06d'; /* FontAwesome exclamation-circle icon */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+}
+
+.icon-missed:before {
+    content: '\f119'; /* FontAwesome frown icon */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+}
+
+.icon-insight:before {
+    content: '\f5da'; /* FontAwesome lightbulb icon */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+}
+
+.icon-lessons:before {
+    content: '\f02d'; /* FontAwesome book icon */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+}
+
+.icon-improve:before {
+    content: '\f55f'; /* FontAwesome smile icon */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+}
+
+
+/* General styles for the hero section */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Make the hero section cover the full viewport height */
+    overflow: hidden;
+    background-color: #f0f0f0; /* Fallback background color */
+    text-align: center; /* Center align the content */
+}
+
+/* Styles for the hero image */
+.hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the image covers the entire space */
+}
+
+/* Optional: Overlay or additional styling for the hero section */
+.hero-section-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Example overlay color */
+}
+
+/* Optional: Centered text or content */
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 24px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero-content {
+        font-size: 18px; /* Adjust font size for smaller screens */
+    }
+}
+
+
+.image-gallery {
+    padding: 40px 20px; /* Adjust padding as needed */
+    text-align: center;
+}
+
+.image-gallery h2 {
+    margin-bottom: 20px;
+}
+
+.gallery-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Adjust spacing between images */
+}
+
+.gallery-item {
+    width: calc(25% - 10px); /* Adjust width based on number of images */
+    overflow: hidden;
+    position: relative;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Optional box shadow */
+}
+
+.gallery-item img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease; /* Optional hover effect */
+}
+
+.gallery-item:hover img {
+    transform: scale(1.01); /* Optional hover effect */
+}
+
+/* P Reflection */
+.personal-reflections {
+    padding: 50px 20px;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.reflection-heading {
+    margin-bottom: 30px;
+    font-size: 36px;
+    color: #333;
+    font-weight: bold;
+}
+
+.image-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    width: calc(100% - 40px); /* Adjust for padding */
+}
+
+.image-item {
+    flex: 1;
+    margin: 0 5px;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.image-item img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.image-item:hover img {
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .row {
+        flex-wrap: wrap;
+    }
+    .image-item {
+        flex: 1 0 45%; /* Adjust for smaller screens */
+        margin: 5px;
+    }
+}
+
+
+/* Styles specific to this page */
+.special-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.special-heading {
+    text-align: center;
+    color: #ff69b4;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.special-content {
+    font-size: 1.1em;
+    text-align: justify;
+}
+
+.special-content p {
+    margin-bottom: 15px;
+}
+
+
+
+
+.image-container1 {
+    width: 100%;
+    max-width: 100vw;
+    overflow: hidden;
+    position: relative;
+}
+
+.image-container1 img {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-height: 100vh; /* Ensures the image does not exceed the viewport height */
+    object-fit: cover; /* Ensures the image covers the entire container */
+}
